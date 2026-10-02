@@ -1,4 +1,4 @@
-const CACHE = 'jam-kucing-v2';
+const CACHE = 'jam-kucing-v3';
 const ASSETS = ['./', './index.html', './style.css', './app.js', './manifest.json',
                 './icon-192.png', './icon-512.png', './maskable-512.png'];
 
@@ -16,8 +16,16 @@ self.addEventListener('activate', (e) => {
   );
 });
 
+// network-first: selalu ambil versi terbaru, fallback ke cache saat offline
 self.addEventListener('fetch', (e) => {
+  if (e.request.method !== 'GET') return;
   e.respondWith(
-    caches.match(e.request).then((r) => r || fetch(e.request))
+    fetch(e.request)
+      .then((res) => {
+        const copy = res.clone();
+        caches.open(CACHE).then((c) => c.put(e.request, copy));
+        return res;
+      })
+      .catch(() => caches.match(e.request))
   );
 });
