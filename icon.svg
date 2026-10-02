@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="96" fill="#2b1d0e"/>
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#c98b4a" stroke-width="6" opacity="0.35"/>
+
+  <!-- telinga -->
+  <polygon points="150,170 175,70 235,150" fill="#c98b4a"/>
+  <polygon points="362,170 337,70 277,150" fill="#c98b4a"/>
+  <polygon points="166,165 180,95 220,150" fill="#e8b07a"/>
+  <polygon points="346,165 332,95 292,150" fill="#e8b07a"/>
+
+  <!-- kepala -->
+  <circle cx="256" cy="250" r="120" fill="#c98b4a"/>
+
+  <!-- mata -->
+  <ellipse cx="206" cy="245" rx="20" ry="26" fill="#1c1c1c"/>
+  <ellipse cx="306" cy="245" rx="20" ry="26" fill="#1c1c1c"/>
+  <circle cx="212" cy="236" r="7" fill="#fff"/>
+  <circle cx="312" cy="236" r="7" fill="#fff"/>
+
+  <!-- hidung -->
+  <polygon points="246,282 266,282 256,296" fill="#d98a8a"/>
+
+  <!-- mulut -->
+  <path d="M256,296 Q244,312 230,308 M256,296 Q268,312 282,308"
+        fill="none" stroke="#5a3a20" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- kumis -->
+  <line x1="190" y1="290" x2="120" y2="280" stroke="#3a2410" stroke-width="4"/>
+  <line x1="190" y1="300" x2="120" y2="310" stroke="#3a2410" stroke-width="4"/>
+  <line x1="322" y1="290" x2="392" y2="280" stroke="#3a2410" stroke-width="4"/>
+  <line x1="322" y1="300" x2="392" y2="310" stroke="#3a2410" stroke-width="4"/>
+</svg>

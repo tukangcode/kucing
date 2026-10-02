@@ -1,0 +1,140 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1a1208;
+  overflow: hidden;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* langit / latar dinamis */
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: background 2s ease;
+}
+.sky.day    { background: linear-gradient(180deg, #7ec8e3 0%, #cdeeff 60%, #f6e3b3 100%); }
+.sky.dusk   { background: linear-gradient(180deg, #3b4a73 0%, #a85c7e 50%, #f4a261 100%); }
+.sky.night  { background: linear-gradient(180deg, #0b1026 0%, #1a1b3a 70%, #2a2040 100%); }
+.sky.dawn   { background: linear-gradient(180deg, #5a6a9a 0%, #e8a87c 55%, #f9d29e 100%); }
+
+/* panggung kucing */
+.cat-stage {
+  position: relative;
+  z-index: 1;
+  margin-top: 14vh;
+  display: flex;
+  justify-content: center;
+}
+
+.cat {
+  width: 200px;
+  height: 200px;
+  filter: drop-shadow(0 8px 10px rgba(0,0,0,0.25));
+  transform-origin: 50% 80%;
+  animation: breathe 3.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,100% { transform: scaleY(1); }
+  50%     { transform: scaleY(1.03); }
+}
+
+/* ekor */
+.tail {
+  transform-origin: 150px 150px;
+  animation: wag 2s ease-in-out infinite;
+}
+.cat.sleeping .tail { animation: none; }
+
+@keyframes wag {
+  0%,100% { transform: rotate(0deg); }
+  50%     { transform: rotate(-22deg); }
+}
+
+/* Zzz */
+.zzz {
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0;
+  text-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+.zzz span { font-size: 18px; }
+.cat-stage.sleeping .zzz {
+  opacity: 1;
+  animation: floatZ 3s ease-in-out infinite;
+}
+@keyframes floatZ {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  30%  { opacity: 1; }
+  100% { transform: translateY(-26px) scale(1.1); opacity: 0; }
+}
+
+/* kartu jam */
+.clock-card {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  margin-bottom: 8vh;
+  width: 86%;
+  padding: 20px 16px;
+  border-radius: 24px;
+  /* latar gelap transparan supaya teks putih tetap kontras di langit terang */
+  background: rgba(20, 14, 40, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+.time {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.date {
+  margin-top: 6px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+.mood {
+  margin-top: 10px;
+  font-size: 17px;
+  min-height: 24px;
+  font-style: italic;
+}
+
+/* responsif */
+@media (max-height: 600px) {
+  .cat-stage { margin-top: 6vh; }
+  .cat { width: 150px; height: 150px; }
+  .time { font-size: 36px; }
+}

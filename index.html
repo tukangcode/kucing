@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jam Kucing</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2b1d0e">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="sky" id="sky"></div>
+
+    <div class="cat-stage">
+      <svg class="cat" id="cat" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- ekor -->
+        <path class="tail" id="tail"
+          d="M150,150 Q180,130 170,95 Q165,75 150,80"
+          fill="none" stroke="#7a5230" stroke-width="14" stroke-linecap="round"/>
+
+        <!-- tubuh -->
+        <ellipse cx="100" cy="145" rx="45" ry="40" fill="#8a6038"/>
+        <!-- kaki depan -->
+        <rect x="80" y="165" width="14" height="25" rx="7" fill="#7a5230"/>
+        <rect x="106" y="165" width="14" height="25" rx="7" fill="#7a5230"/>
+
+        <!-- kepala -->
+        <circle cx="100" cy="95" r="42" fill="#8a6038"/>
+        <!-- telinga -->
+        <polygon points="68,68 78,30 98,58" fill="#8a6038"/>
+        <polygon points="132,68 122,30 102,58" fill="#8a6038"/>
+        <polygon points="74,60 80,42 92,58" fill="#d8a878"/>
+        <polygon points="126,60 120,42 108,58" fill="#d8a878"/>
+
+        <!-- mata (buka) -->
+        <g id="eyes-open">
+          <ellipse cx="82" cy="95" rx="7" ry="9" fill="#1c1c1c"/>
+          <ellipse cx="118" cy="95" rx="7" ry="9" fill="#1c1c1c"/>
+          <circle cx="84" cy="92" r="2.5" fill="#fff"/>
+          <circle cx="120" cy="92" r="2.5" fill="#fff"/>
+        </g>
+        <!-- mata (tidur) -->
+        <g id="eyes-closed" style="display:none">
+          <path d="M74,95 Q82,100 90,95" fill="none" stroke="#1c1c1c" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M110,95 Q118,100 126,95" fill="none" stroke="#1c1c1c" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+
+        <!-- hidung -->
+        <polygon points="96,110 104,110 100,116" fill="#d98a8a"/>
+        <!-- mulut -->
+        <path d="M100,116 Q95,122 90,120 M100,116 Q105,122 110,120"
+          fill="none" stroke="#5a3a20" stroke-width="2" stroke-linecap="round"/>
+        <!-- kumis -->
+        <line x1="70" y1="112" x2="48" y2="108" stroke="#5a3a20" stroke-width="1.5"/>
+        <line x1="70" y1="117" x2="48" y2="120" stroke="#5a3a20" stroke-width="1.5"/>
+        <line x1="130" y1="112" x2="152" y2="108" stroke="#5a3a20" stroke-width="1.5"/>
+        <line x1="130" y1="117" x2="152" y2="120" stroke="#5a3a20" stroke-width="1.5"/>
+      </svg>
+
+      <div class="zzz" id="zzz">Z<span>z</span><span>z</span></div>
+    </div>
+
+    <div class="clock-card">
+      <div class="time" id="time">00:00:00</div>
+      <div class="date" id="date">—</div>
+      <div class="mood" id="mood">Halo!</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
